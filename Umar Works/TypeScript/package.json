@@ -1,0 +1,16 @@
+{
+  "name": "TypeScript",
+  "version": "1.0.0",
+  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "Umar",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.4.0",
+    "tslint": "^3.15.1"
+  },
+  "repository": {}
+}

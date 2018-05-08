@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Babel</title>
+    <style>
+        body{
+            min-height: -webkit-fill-available;
+        }
+        html{
+            min-height: 100%;
+        }
+        .container{
+            width: 100%;
+            background-color:#f1eaea;
+            min-height: -webkit-fill-available;
+        }
+        .left-side-area{
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+        .left-side-area textarea{
+            margin: 0px;
+            width: 661px;
+            height: 639px;
+            resize: none;
+        }
+        .right-side-area{
+            width: 50%;
+            float: right;
+        }
+        #root{
+            float: right;
+            color: darkblue;
+            font-size: 21px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-side-area">
+        <textarea class="text-area"></textarea>
+    </div>
+    <div class="right-side-area">
+        <div id="root"></div>
+    </div>
+</div>
+<button onclick="myFunction()">Click me</button>
+<p id="demo"></p>
+<script src="templateInput.js"></script>
+</body>
+</html>

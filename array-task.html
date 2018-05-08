@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script src="parse.js"></script>
+    <script src="./Course-Management-System/data-model.js"></script>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .last {
+            background-color: white;
+            border: none;
+        }
+
+        .color-blue {
+            background-color: #47eae2;
+            transition: background-color 0.5s ease-in-out;
+        }
+        .pic {
+            position: relative;
+            left: -60px;
+            top: 7px;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-app='app' ng-controller="mainController">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+
+        </thead>
+        <tbody ng-repeat="product in salesProducts">
+
+        <tr ng-class="{'color-blue':isColorChange(product)}">
+
+            <td><img ng-if="product.freeProduct" ng-click="onColorChange(product)" class="pic" src="small-plus-icon-83603.png" width="25px" height="25px">{{product.name}}
+            </td>
+            <td>{{product.cost}}</td>
+
+        </tr>
+
+        <tr ng-repeat="freeProduct in product.freeProduct">
+
+            <td>{{freeProduct.FreeProductName}}</td>
+            <td></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div>
+    <span>{{a}}</span>
+</div>
+
+
+<script>
+
+    var app = angular.module('app', []);
+
+    app.controller('mainController', function ($scope) {
+
+        $scope.complication = ['one','two','three'];
+
+        $scope.a = $scope.complication.map(function (ele) {
+            return ele
+        });
+        console.log($scope.a.join(','));
+
+        $scope.salesProducts = [
+            {"id":"100",name: "Laptop", cost: 10000, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Mouse"}]},
+            {"id":"101",name: "Machine", cost: 10000},
+            {"id":"102",name: "Monitor",cost: 10000, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Bag"}, {FreeProductName: "Pen"}]},
+            {"id":"103",name: "Phone", cost: 5000},
+            {"id":"104",name: "Mouse", cost: 300, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Mouse"}]},
+            {"id":"105",name: "Cpu", cost: 2000}
+        ];
+
+        $scope.productLists = [];
+        $scope.idClickTrack = {};
+
+        $scope.onColorChange = function (product){
+            if($scope.idClickTrack[product.id]){
+                $scope.idClickTrack[product.id] = $scope.idClickTrack[product.id]+1;
+            }
+            else{
+                $scope.idClickTrack[product.id] =1;
+
+            }
+        };
+
+
+
+        $scope.isBlue=function(product){
+
+        };
+
+        $scope.isGreen=function(product){
+
+        };
+
+        $scope.isRed=function(product){
+
+        };
+    });
+
+</script>
+
+</body>
+</html>

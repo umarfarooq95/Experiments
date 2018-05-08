@@ -1,0 +1,15 @@
+{
+  "name": "my-package",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-pipeline-operator"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}

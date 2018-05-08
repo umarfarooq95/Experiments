@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>react-router.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,0); }
+.s1 { color: rgb(0,0,128); font-weight: bold; }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+.s3 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+react-router.html</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;!DOCTYPE html&gt; 
+&lt;</span><span class="s1">html </span><span class="s0">lang=</span><span class="s2">&quot;en&quot;</span><span class="s0">&gt; 
+&lt;</span><span class="s1">head</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">meta </span><span class="s0">charset=</span><span class="s2">&quot;UTF-8&quot;</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">title</span><span class="s0">&gt;React Router&lt;/</span><span class="s1">title</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">script </span><span class="s0">src=</span><span class="s2">&quot;https://unpkg.com/react@15.3.2/dist/react.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s1">script</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">script </span><span class="s0">src=</span><span class="s2">&quot;https://unpkg.com/react-dom@15.3.2/dist/react-dom.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s1">script</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">script </span><span class="s0">src=</span><span class="s2">&quot;https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s1">script</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">script </span><span class="s0">src=</span><span class="s2">&quot;https://cdnjs.cloudflare.com/ajax/libs/react-router/4.1.1/react-router.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s1">script</span><span class="s0">&gt; 
+    &lt;</span><span class="s1">style</span><span class="s0">&gt; 
+        </span><span class="s1">#container</span><span class="s0">{ 
+            padding: </span><span class="s3">50</span><span class="s2">px</span><span class="s0">; 
+            background-color: </span><span class="s1">#FFCC00</span><span class="s0">; 
+        } 
+    &lt;/</span><span class="s1">style</span><span class="s0">&gt; 
+&lt;/</span><span class="s1">head</span><span class="s0">&gt; 
+&lt;</span><span class="s1">body</span><span class="s0">&gt; 
+&lt;</span><span class="s1">div </span><span class="s0">id=</span><span class="s2">&quot;container&quot;</span><span class="s0">&gt;&lt;/</span><span class="s1">div</span><span class="s0">&gt; 
+&lt;</span><span class="s1">script </span><span class="s0">type=</span><span class="s2">&quot;text/babel&quot;</span><span class="s0">&gt; 
+    </span><span class="s1">var </span><span class="s0">destination = document.querySelector(</span><span class="s2">&quot;#container&quot;</span><span class="s0">); 
+    </span><span class="s1">var </span><span class="s0">App = React.createClass({ 
+        render: </span><span class="s1">function </span><span class="s0">() { 
+            </span><span class="s1">return</span><span class="s0">( 
+                    &lt;</span><span class="s1">div</span><span class="s0">&gt; 
+                        &lt;</span><span class="s1">h1</span><span class="s0">&gt;Simple SPA&lt;/</span><span class="s1">h1</span><span class="s0">&gt; 
+                        &lt;</span><span class="s1">ul </span><span class="s0">className=</span><span class="s2">&quot;header&quot;</span><span class="s0">&gt; 
+                            &lt;</span><span class="s1">li</span><span class="s0">&gt;Home&lt;/</span><span class="s1">li</span><span class="s0">&gt; 
+                            &lt;</span><span class="s1">li</span><span class="s0">&gt;Stuff&lt;/</span><span class="s1">li</span><span class="s0">&gt; 
+                            &lt;</span><span class="s1">li</span><span class="s0">&gt;Contact&lt;/</span><span class="s1">li</span><span class="s0">&gt; 
+                        &lt;/</span><span class="s1">ul</span><span class="s0">&gt; 
+                        &lt;</span><span class="s1">div </span><span class="s0">className=</span><span class="s2">&quot;content&quot;</span><span class="s0">&gt; 
+ 
+                        &lt;/</span><span class="s1">div</span><span class="s0">&gt; 
+                    &lt;/</span><span class="s1">div</span><span class="s0">&gt; 
+            ) 
+        } 
+    }); 
+    ReactDOM.render( 
+            &lt;</span><span class="s1">ReactRouter.Router</span><span class="s0">&gt; 
+                &lt;</span><span class="s1">ReactRouter.Route </span><span class="s0">path=</span><span class="s2">&quot;/app&quot; </span><span class="s0">component={App}&gt; 
+ 
+                &lt;/</span><span class="s1">ReactRouter.Route</span><span class="s0">&gt; 
+            &lt;/</span><span class="s1">ReactRouter.Router</span><span class="s0">&gt;, 
+            destination 
+    ); 
+ 
+&lt;/</span><span class="s1">script</span><span class="s0">&gt; 
+&lt;/</span><span class="s1">body</span><span class="s0">&gt; 
+&lt;/</span><span class="s1">html</span><span class="s0">&gt;</span></pre>
+</body>
+</html>

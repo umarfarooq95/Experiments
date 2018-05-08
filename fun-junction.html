@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Junction</title>
+    <script src="array-method.js"></script>
+</head>
+<style>
+    #container{
+        padding: 100px;
+        background-color: bisque;
+    }
+    #track{
+        border-bottom: 1px dashed darkcyan
+    }
+    #train{
+        position: relative;
+        left: 0;
+    }
+    #stopButton{
+        text-align: center;
+        padding: 10px;
+        background-color: red;
+        width: 150px;
+        margin-top: 15px!important;
+        margin: auto;
+    }
+
+</style>
+<body>
+<div id="container">
+    <div id="track">
+        <div id="train"><img src="http://www.watzthis.com/images/train.png"></div>
+    </div>
+    <div id="stopButton">Stop!</div>
+</div>
+<script>
+    var trainSpeed = 1133;
+    var trainPosition = 0;
+    var animation;
+    var train = document.getElementById("train");
+    train.addEventListener("click", speedUp);
+    var stopButton = document.getElementById("stopButton");
+    stopButton.addEventListener("click", stopTrain);
+    function speedUp () {
+        if(trainSpeed > 100){
+            trainSpeed -= 10;
+        }
+        clearInterval(animation);
+        animation = setInterval(frame, trainSpeed);
+    }
+    function frame() {
+        trainPosition += 5;
+        train.style.left = trainPosition + 'px';
+        checkPosition(trainPosition);
+    }
+    function checkPosition(currentPosition) {
+        if (currentPosition === 1000) {
+            alert("Crash!");
+            console.log("Crash!");
+            clearInterval(animation);
+        }
+    }
+    function stopTrain() {
+        if (trainPosition < 1133) {
+            clearInterval(animation);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/*https://www.typescriptlang.org/docs/handbook/compiler-options.html*/
+
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "target": "es6",
+    "watch": true,
+    "experimentalDecorators": true
+  }
+}

@@ -1,0 +1,151 @@
+/*
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.container {
+    background: url("./page-cover.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+    width: 148px;
+    height: 100px;
+    background: #F2385A;
+    position: relative;
+    top: -8px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 0px 0px #f02046, 0px 0px 20px 0px #bbb;
+    transition: all 0.2s;
+    left: 130px;
+}
+
+.buttons a:active {
+    top: -6px;
+    box-shadow: 0px 7px 0px 0px #f02046;
+}
+
+.button1 {
+    background-color: #F2385A;
+}
+
+main {
+    width: 100%;
+    display: inline-block;
+}
+
+.navbar {
+    width: 100%;
+    margin: 0px;
+
+}
+
+.navbar > ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.navbar > ul li {
+    display: inline-block;
+}
+
+.navbar > ul li a {
+    text-decoration: none;
+    color: #fff;
+    width: 120px;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    position: relative;
+}
+
+.navbar > ul li a::before {
+    background: #F2385A none repeat scroll 0 0;
+    bottom: -2px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    transition: 0.5s;
+}
+
+.navbar > ul li a:hover::before {
+    width: 100%;
+}
+
+.buttons {
+    position: absolute;
+    right: 140px;
+    top: 23px;
+}
+
+.float-left {
+    float: left;
+}
+
+.navbar:hover {
+    background-color: white;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+}
+.navbar:hover a{
+   color: black;
+}
+*/
+
+/*:root{
+    font-size: calc(0.5em + 1vw);
+}*/
+
+body {
+    line-height: 1.2;
+}
+
+.about-us {
+    font-size: 2em;
+}
+
+:root {
+    --main-font: Helvetica, Arial, sans-serif;
+    --brand-color: #369;
+    --main-bg: #fff;
+    --main-color: #000;
+}
+
+.panel {
+    font-size: 1rem;
+    padding: 1em;
+    border: 1px solid #999;
+    border-radius: 0.5em;
+    background-color: var(--main-bg);
+    color: var(--main-color);
+}
+
+.panel > h2 {
+    margin-top: 0;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dark {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #999;
+    --main-bg: #333;
+    --main-color: #fff;
+}
+
+/*p{
+    font-family: var(--main-font);
+    !*color: var(--brand-color);*!
+    color: var(--secondary-color, blue);
+}*/

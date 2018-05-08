@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wishList</title>
+    <style>
+        #listPage{
+            background-color: darkgrey;
+            margin: 100px;
+            padding: 50px;
+        }
+        .print li{
+            border-left: 2px solid darkmagenta;
+            border-bottom: 1px dashed darkblue;
+            padding: 5px;
+        }
+        #wishList{
+            width: 200px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+<div id="listPage" class="print">
+    <h1>My Wish List</h1>
+    <div id="formArea">
+        <label>What I want:
+            <input type="text" id="iWant"/>
+        </label>
+        <button type="button" id="addIt">Add It!</button>
+        <br/><br/>
+        <button type="button" id="printable">Print Your List</button>
+    </div>
+    <ul id="wishList"></ul>
+</div>
+</body>
+<script>
+    var printButton = document.getElementById("printable");
+    printButton.addEventListener("click",printView);
+
+    var addButton = document.getElementById("addIt");
+    addButton.addEventListener("click",addAThing);
+
+    var myList = [];
+    var myListArea = document.getElementById("wishList");
+    var theThing;
+    function addAThing() {
+         theThing = document.getElementById("iWant");
+        addToTheList(theThing);
+        resetInput(theThing)
+    }
+    function printView() {
+        var listPage = document.getElementById("listPage");
+        var formArea = document.getElementById("formArea");
+        formArea.style.display = "none";
+        listPage.className = 'print';
+        myListArea.innerHTML = "";
+        myList.sort();
+        for (var i = 0; i < myList.length; i++) {
+            myListArea.innerHTML += "<li>" + myList[i] + "</li>";
+        }
+    }
+    function addToTheList(thingToAdd) {
+        myList.push(thingToAdd.value);
+        var newItem = document.createElement('li');
+        newItem.innerHTML = myList[myList.length - 1];
+        myListArea.appendChild(newItem);
+        resetInput(theThing)
+    }
+    function resetInput(thingsToClear) {
+        thingsToClear.value = ""
+    }
+    var myNumber = prompt("Enter your favorite day of the week!");
+    var theResponse;
+    switch (myNumber) {
+        case "Monday":
+            theResponse = "Ack!";
+            break;
+        case "Tuesday":
+            theResponse = "Taco day!";
+            break;
+        case "Wednesday":
+            theResponse = "Halfway there!";
+            break;
+        case "Thursday":
+            theResponse = "It’s the new Friday!";
+            break;
+        case "Friday":
+            theResponse = "TGIF! Yeah!";
+            break;
+        case "Saturday":
+            theResponse = "What a day!";
+            break;
+        case "Sunday":
+            theResponse = "Sunday = Funday!";
+            break;
+        default:
+            theResponse = "I haven’t heard of that one!";
+            break;
+    }
+    alert (theResponse);
+</script>
+</html>

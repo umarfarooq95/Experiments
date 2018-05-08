@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas In Socket</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<style>
+    body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+
+    html {
+        height: 100%;
+    }
+</style>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    var socket = io.connect('http://localhost:4000');
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+    ctx.strokeStyle = 'white'
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+
+
+    canvas.addEventListener('click',drawCircle)
+
+    socket.emit('draw circle', drawCircle)
+
+    function drawCircle(e) {
+        var X = e.clientX;
+        var Y = e.clientY;
+        ctx.strokeStyle = 'white'
+        ctx.beginPath();
+        ctx.arc(X, Y, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>

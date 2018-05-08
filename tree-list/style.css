@@ -1,0 +1,29 @@
+.tgrid-body-wrapper{
+    overflow-y: hidden!important;
+    will-change: transform;
+    overflow-x: auto;
+}
+.tgrid-body-table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+table {
+    background-color: transparent;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.tgrid-body-table tr {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.tgrid-data-cell {
+    padding: .5em .75em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

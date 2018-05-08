@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React!React!React!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        #container {
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/babel">
+
+
+    var Card = React.createClass({
+
+        render: function () {
+
+            return (
+                    <StyledCard>
+                        <Square squareColor={this.props.color}/>
+                        <Label labelColor={this.props.color}/>
+                    </StyledCard>
+            )
+        }
+    });
+
+    var StyledCard = React.createClass({
+
+        render: function () {
+            var letterStyle = {
+                width: 150,
+                height: 200,
+                padding: 0,
+                margin: 10,
+                display: "inline-block",
+                backgroundColor: "#FFF",
+                filter: "drop-shadow(0px 0px 5px #666)",
+                WebkitFilter: "drop-shadow(0px 0px 5px #666)"
+            };
+            return (
+                    <div style={letterStyle}>
+                        {this.props.children}
+                    </div>
+
+            )
+        }
+    });
+
+    var Square = React.createClass({
+
+        render: function () {
+            var squareStyle = {
+                height: 150,
+                backgroundColor: this.props.squareColor
+            };
+
+            return (
+                    <div style={squareStyle}>
+
+                    </div>
+            )
+        }
+
+    });
+
+    var Label = React.createClass({
+
+        render: function () {
+            var labelStyle = {
+                fontFamily: "sans-serif",
+                fontWeight: "bold",
+                padding: 13,
+                margin: 0
+            };
+
+            return (
+                    <p style={labelStyle}>
+                        {this.props.labelColor}
+                    </p>
+            )
+        }
+
+    });
+
+
+    var destination = document.querySelector("#container");
+    var cards = ['black', 'red', 'blue', 'yellow'].map((color,i)=> {
+        return <Card color={color} key={i}/>
+    });
+    ReactDOM.render(
+            <div>
+                {cards}
+            </div>,
+            destination
+    );
+
+</script>
+
+</body>
+</html>

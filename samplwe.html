@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .last {
+            background-color: white;
+            border: none;
+        }
+
+        .color-blue {
+            background-color: #47eae2;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        .pic {
+            position: relative;
+            left: -60px;
+            top: 7px;
+        }
+        .minus{
+            background-image: url("icon-minus-round-128.png");
+        }
+    </style>
+</head>
+<body>
+<div ng-app='app' ng-controller="mainController">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+
+        </thead>
+        <tbody ng-repeat="product in salesProducts">
+
+            <tr ng-class="{'color-blue':isColorChange(product)}">
+
+                <td><img ng-if="product.freeProduct" ng-click="onShowFreeProduct(product)" ng-dblclick="onClearColor(product)" class="pic" src="small-plus-icon-83603.png" width="25px" height="25px">{{product.name}}
+                </td>
+                <td>{{product.cost}}</td>
+
+            </tr>
+
+            <tr ng-repeat="freeProduct in product.freeProduct">
+
+                <td>{{freeProduct.FreeProductName}}</td>
+                <td></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    var app = angular.module('app', []);
+
+    app.controller('mainController', function ($scope) {
+
+        $scope.salesProducts = [
+            {name: "Laptop", cost: 10000, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Mouse"}]},
+            {name: "Machine", cost: 10000},
+            {name: "Monitor",cost: 10000, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Bag"}, {FreeProductName: "Pen"}]},
+            {name: "Phone", cost: 5000},
+            {name: "Mouse", cost: 300, freeProduct: [{FreeProductName: "KeyBoard"}, {FreeProductName: "Mouse"}]},
+            {name: "Cpu", cost: 2000}
+        ];
+
+        $scope.canExpandables = [];
+
+        $scope.onShowFreeProduct = function (product){
+            $scope.canExpandables.push(product);
+        };
+
+        $scope.isColorChange = function (product){
+            return ($scope.canExpandables.indexOf(product)>=0)
+        };
+
+        $scope.onClearColor = function (product){
+            var removedObj = null;
+            var productObj = product;
+            if($scope.canExpandables.indexOf(productObj)>=0){
+                removedObj= $scope.canExpandables.splice(productObj,3);
+                return true
+            }
+            return false;
+        };
+    });
+
+</script>
+</body>
+</html>

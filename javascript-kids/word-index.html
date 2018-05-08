@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js Word Game</title>
+    <style>
+        body{
+            font-family:"Comic Sans MS";
+        }
+        .inputWords{
+            width: 45%;
+            float: left;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            line-height: 2em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        input[type=text]{
+            border-width: 0 0 1px 0;
+            border-color: #333;
+        }
+        .buttonDiv{
+            text-align: center;
+        }
+        .replaceBtn{
+            width: 200px;
+            margin-top: 30px;
+        }
+        .story{
+            border: 1px dashed blue;
+            width: 45%;
+            padding: 8px;
+            float: left;
+            margin-top: 13px;
+        }
+    </style>
+</head>
+<body>
+<div class="inputWords">
+    <ul>
+        <li>
+            <input type="text" id="adj"/>
+            <br>Adjective
+        </li>
+        <li>
+            <input type="text" id="verb"/>
+            <br>Verb(Ending in *-ing)
+        </li>
+        <li>
+            <input type="text" id="room"/>
+            <br>Room in a house
+        </li>
+        <li>
+            <input type="text" id="color"/>
+            <br>Color
+        </li>
+        <li>
+            <input type="text" id="noun"/>
+            <br>Plural Noun
+        </li>
+        <li>
+            <input type="text" id="verb(past)"/>
+            <br>Verb(Past Tense)
+        </li>
+        <li>
+            <input type="text" id="Beverage"/>
+            <br>Beverage
+        </li>
+    </ul>
+    <div class="buttonDiv">
+        <button class="replaceBtn" type="button">Replace It!</button>
+    </div>
+</div>
+<div class="story"></div>
+
+<script>
+    var replaceBtn = document.getElementsByClassName("replaceBtn")[0];
+    replaceBtn.addEventListener("click",replaceIt);
+    function replaceIt() {
+        var storyDiv = document.getElementsByClassName("story")[0];
+
+        var adj1 = "<span class='replacement'>"+ document.getElementById("adj").value + "</span>";
+        var verb = "<span class='replacement'>"+ document.getElementById("verb").value + "</span>";
+        var room = "<span class='replacement'>"+ document.getElementById("room").value + "</span>";
+        var color = "<span class='replacement'>"+ document.getElementById("color").value + "</span>";
+        var noun = "<span class='replacement'>"+ document.getElementById("noun").value + "</span>";
+        var verbPast = "<span class='replacement'>"+ document.getElementById("verb(past)").value + "</span>";
+        var Beverage = "<span class='replacement'>"+ document.getElementById("Beverage").value + "</span>";
+
+
+        var theStory;
+        theStory = "<h1>The Douglas Party Dance</h1>";
+        theStory += "One " + adj1 + " Day,";
+        theStory += " Douglas was " + verb;
+        theStory += " in his " + room;
+        theStory += ", reading a book about " + color;
+        theStory += " " + noun + ".<br><br>";
+        theStory += "As he " + verbPast;
+        theStory += " his " + Beverage;
+        storyDiv.innerHTML = theStory;
+    }
+</script>
+
+</body>
+</html>
